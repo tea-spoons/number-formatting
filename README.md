@@ -58,7 +58,7 @@ In Unity: **Window > Package Manager > + > Add package from git URL**, then ente
 https://github.com/tea-spoons/number-formatting.git
 ```
 
-Pin a release by appending a tag, for example `#v0.3.3`.
+Pin a release by appending a tag, for example `#v0.3.4`.
 
 ### Dependencies
 

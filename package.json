@@ -1,6 +1,6 @@
 {
   "name": "com.tea-spoons.number-formatting",
-  "version": "0.3.3",
+  "version": "0.3.4",
   "displayName": "Number Formatting",
   "description": "Makes numbers human readable and intuitive.",
   "unity": "2022.3",
