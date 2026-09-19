@@ -67,6 +67,29 @@ namespace TeaSpoons.NumberFormatting.Editor.Tests
             Assert.AreEqual(output, formatter.FormatCost(input));
         }
 
+        // Same expectations as the long formatter: costs round up, and a carry moves into the next suffix group.
+        [TestCase(0, "0")]
+        [TestCase(1000, "1K")]
+        [TestCase(1001, "1.01K")]
+        [TestCase(1011, "1.02K")]
+        [TestCase(9991, "10K")]
+        [TestCase(99001, "99.1K")]
+        [TestCase(99901, "100K")]
+        [TestCase(999000, "999K")]
+        [TestCase(999001, "1M")]
+        [TestCase(999999, "1M")]
+        [TestCase(1000000, "1M")]
+        [TestCase(-999000, "-999K")]
+        [TestCase(-999001, "-999K")]
+        [TestCase(-999999, "-999K")]
+        [TestCase(-1000000, "-1M")]
+        public void SuffixLargeIntFormatterForCost(long input, string output)
+        {
+            var formatter = new SuffixLargeIntFormatter(NumberSuffixProviders.TrillionThenDoubleLetter);
+
+            Assert.AreEqual(output, formatter.FormatCost(input));
+        }
+
         [Test]
         public void LargeIntMissingSuffix()
         {

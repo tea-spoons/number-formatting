@@ -78,15 +78,24 @@ namespace TeaSpoons.NumberFormatting
                 digits += 1;
             }
 
+            // Ceiling can carry into an extra digit (999.999K becomes 1000K). Move that digit into the next
+            // suffix group instead, so the result reads 1M rather than 100K.
+            var exponent = absolute.Exponent;
+            if (digits >= Pow10(visibleDigitCount))
+            {
+                digits /= 10;
+                exponent++;
+            }
+
             // Calculate the amount of digits we want to display before the decimal separator.
-            var digitsBeforeDecimalCount = (byte)((absolute.Exponent % 3) + 1);
+            var digitsBeforeDecimalCount = (byte)((exponent % 3) + 1);
 
             if (negative)
             {
                 stringBuilder.Append('-');
             }
 
-            var suffixIndex = absolute.Exponent / 3 - 1;
+            var suffixIndex = exponent / 3 - 1;
             string suffix;
             try
             {
