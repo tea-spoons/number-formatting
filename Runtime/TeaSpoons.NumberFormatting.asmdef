@@ -1,0 +1,22 @@
+{
+    "name": "TeaSpoons.NumberFormatting",
+    "rootNamespace": "TeaSpoons.NumberFormatting",
+    "references": [
+        "GUID:4b00c35ed92bef049af45c158b1d70c8"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [
+        {
+            "name": "com.tea-spoons.large-numbers",
+            "expression": "0.2.2",
+            "define": "LARGE_NUMBERS"
+        }
+    ],
+    "noEngineReferences": false
+}
